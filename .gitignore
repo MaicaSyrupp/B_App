@@ -10,6 +10,7 @@ npm-debug.log*
 
 # Prisma
 apps/api/prisma/dev.db
+apps/api/src/generated/
 
 # Editor
 .vscode/*
