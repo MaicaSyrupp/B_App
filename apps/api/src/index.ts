@@ -1,13 +1,18 @@
-import 'dotenv/config'
 import express from 'express'
+import cors from 'cors'
+import { env } from './config/env.js'
+import { healthRouter } from './routes/health.js'
+import { errorHandler } from './middleware/errorHandler.js'
 
 const app = express()
-const port = process.env.PORT ?? 4000
 
-app.get('/health', (_req, res) => {
-  res.json({ status: 'ok' })
-})
+app.use(cors({ origin: env.corsOrigin }))
+app.use(express.json())
 
-app.listen(port, () => {
-  console.log(`API listening on port ${port}`)
+app.use('/api', healthRouter)
+
+app.use(errorHandler)
+
+app.listen(env.port, () => {
+  console.log(`API listening on port ${env.port}`)
 })
