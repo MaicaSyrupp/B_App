@@ -1,0 +1,17 @@
+node_modules/
+dist/
+dist-electron/
+release/
+.env
+.env.local
+.DS_Store
+*.log
+npm-debug.log*
+
+# Prisma
+apps/api/prisma/dev.db
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
